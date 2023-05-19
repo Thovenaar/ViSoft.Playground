@@ -1,14 +1,17 @@
 ﻿using FluentAssertions;
 using Newtonsoft.Json;
-using ViSoft.Playground.Domain.Entities;
+using ViSoft.Playground.Domain.Users;
+using ViSoft.Playground.WebAPI.IntegrationTests.TestUtils;
+using ViSoft.Playground.WebAPI.IntegrationTests.TestUtils.Factories;
 
 namespace ViSoft.Playground.WebAPI.IntegrationTests.UsersController
 {
-    public class UserControllerTests : IClassFixture<UserFactory>
+    [Collection(SharedTestCollections.UserCollection)]
+    public class TestsWithSeedData
     {
         private readonly HttpClient _client;
 
-        public UserControllerTests(UserFactory userFactory)
+        public TestsWithSeedData(UserFactory userFactory)
         {
             _client = userFactory.CreateClient();
         }
@@ -16,7 +19,7 @@ namespace ViSoft.Playground.WebAPI.IntegrationTests.UsersController
         [Fact]
         public async Task GetUsers_ReturnsUsers()
         {
-            var response = await _client.GetAsync("api/v1/User/Get");
+            var response = await _client.GetAsync("api/v1/User/GetByEmailAddress?emailAddress=thomas@visoftsolutions.nl");
             response.EnsureSuccessStatusCode();
 
             var json = await response.Content.ReadAsStringAsync();

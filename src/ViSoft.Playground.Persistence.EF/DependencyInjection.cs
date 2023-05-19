@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ViSoft.Playground.Domain.Repositories;
+using ViSoft.Playground.Application.Data;
+using ViSoft.Playground.Domain.Users;
+using ViSoft.Playground.Persistence.EF.Users;
 
 namespace ViSoft.Playground.Persistence.EF;
 
@@ -15,12 +17,9 @@ public static class DependencyInjection
             options.UseSqlServer(connectionString);
         });
 
+        services.AddScoped<IAppDbContext>(sp => sp.GetRequiredService<AppDbContext>());
+        services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<AppDbContext>());
         services.AddScoped<IUserRepository, UserRepository>();
-
-        //services.AddDbContextFactory<AppDbContext>(options =>
-        //{
-        //    options.UseSqlServer(connectionString);
-        //});
 
         return services;
     }

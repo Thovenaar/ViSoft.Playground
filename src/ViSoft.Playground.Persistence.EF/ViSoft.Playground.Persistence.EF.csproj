@@ -12,11 +12,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ViSoft.Playground.Application\ViSoft.Playground.Application.csproj" />
     <ProjectReference Include="..\ViSoft.Playground.Domain\ViSoft.Playground.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Configurations\" />
   </ItemGroup>
 
 </Project>

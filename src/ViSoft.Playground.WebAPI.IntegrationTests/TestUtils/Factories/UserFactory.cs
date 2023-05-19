@@ -1,6 +1,6 @@
-﻿using ViSoft.Playground.Persistence.EF.Models;
+﻿using ViSoft.Playground.Domain.Users;
 
-namespace ViSoft.Playground.WebAPI.IntegrationTests
+namespace ViSoft.Playground.WebAPI.IntegrationTests.TestUtils.Factories
 {
     public class UserFactory : BaseFactory
     {
@@ -9,6 +9,7 @@ namespace ViSoft.Playground.WebAPI.IntegrationTests
             var dbContext = GetAppDbContext();
             dbContext.Users.Add(new User
             {
+                EmailAddress = "thomas@visoftsolutions.nl",
                 FirstName = "Thomas",
                 LastName = "Vieveen"
             });

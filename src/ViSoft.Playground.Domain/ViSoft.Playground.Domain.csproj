@@ -6,13 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Modules\" />
-    <Folder Include="Factories\" />
-    <Folder Include="Exceptions\" />
-    <Folder Include="Repositories\" />
-    <Folder Include="Services\" />
-    <Folder Include="ValueObjects\" />
-  </ItemGroup>
-
 </Project>

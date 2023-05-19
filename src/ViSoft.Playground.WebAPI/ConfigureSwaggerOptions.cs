@@ -8,9 +8,7 @@ namespace ViSoft.Playground.WebAPI
     public class ConfigureSwaggerOptions : IConfigureNamedOptions<SwaggerGenOptions>
     {
         private readonly IApiVersionDescriptionProvider _provider;
-
-        public ConfigureSwaggerOptions(
-            IApiVersionDescriptionProvider provider)
+        public ConfigureSwaggerOptions(IApiVersionDescriptionProvider provider)
         {
             _provider = provider;
         }
