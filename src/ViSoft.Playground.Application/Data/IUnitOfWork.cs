@@ -1,17 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ViSoft.Playground.Domain.Users;
-
-namespace ViSoft.Playground.Application.Data
+﻿namespace ViSoft.Playground.Application.Data
 {
     public interface IUnitOfWork
     {
-        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
-    }
-
-    public interface IAppDbContext
-    {
-        DbSet<User> Users { get; set; }
-
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }
